@@ -12,6 +12,8 @@ yum -y install crontabs
 vixie-cron 软件包是 cron 的主程序；
 crontabs 软件包是用来安装、卸装、或列举用来驱动 cron 守护进程的表格的程序。
 
+<!--more-->
+
 ## 二、配置
 
 需要手动启动crontab，设置开机自动启动

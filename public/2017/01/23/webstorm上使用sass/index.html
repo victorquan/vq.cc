@@ -1,108 +1,188 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>webstorm上使用sass | 静静想你</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本文主要介绍一下如何在webstorm上使用sass，实时自动编译sass文件。
-一、安装1、在翻*墙的情况下：1）首先要为自己电脑安装ruby
-2）执行命令行：
-$ gem install sass
-2、未翻*墙的情况下：12345678910111213$ gem sources --remove https://rubygems.org/$ gem sources -a https://ru">
-<meta property="og:type" content="article">
-<meta property="og:title" content="webstorm上使用sass">
-<meta property="og:url" content="http://vquan.com/2017/01/23/webstorm上使用sass/index.html">
-<meta property="og:site_name" content="静静想你">
-<meta property="og:description" content="本文主要介绍一下如何在webstorm上使用sass，实时自动编译sass文件。
-一、安装1、在翻*墙的情况下：1）首先要为自己电脑安装ruby
-2）执行命令行：
-$ gem install sass
-2、未翻*墙的情况下：12345678910111213$ gem sources --remove https://rubygems.org/$ gem sources -a https://ru">
-<meta property="og:image" content="http://vquan.com/css/images/webstorm-sass-config.png">
-<meta property="og:updated_time" content="2017-01-23T08:21:47.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="webstorm上使用sass">
-<meta name="twitter:description" content="本文主要介绍一下如何在webstorm上使用sass，实时自动编译sass文件。
-一、安装1、在翻*墙的情况下：1）首先要为自己电脑安装ruby
-2）执行命令行：
-$ gem install sass
-2、未翻*墙的情况下：12345678910111213$ gem sources --remove https://rubygems.org/$ gem sources -a https://ru">
-<meta name="twitter:image" content="http://vquan.com/css/images/webstorm-sass-config.png">
-  
-    <link rel="alternate" href="/atom.xml" title="静静想你" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  
+<html lang="zh-CN">
 
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="这是静静的窝">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Victor">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="webstorm上使用sass"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="这是静静的窝" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="键客"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>webstorm上使用sass - 键客</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
 </head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">静静想你</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://vquan.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-webstorm上使用sass" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/01/23/webstorm上使用sass/" class="article-date">
-  <time datetime="2017-01-23T08:00:29.000Z" itemprop="datePublished">2017-01-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      webstorm上使用sass
-    </h1>
-  
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文主要介绍一下如何在webstorm上使用sass，实时自动编译sass文件。</p>
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">静静的窝</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/victorquan">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>webstorm上使用sass</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-01-23
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/sass-前端/">#sass,前端</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>本文主要介绍一下如何在webstorm上使用sass，实时自动编译sass文件。</p>
 <h2 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h2><h3 id="1、在翻-墙的情况下："><a href="#1、在翻-墙的情况下：" class="headerlink" title="1、在翻*墙的情况下："></a>1、在翻*墙的情况下：</h3><p>1）首先要为自己电脑安装ruby</p>
 <p>2）执行命令行：</p>
 <p>$ gem install sass</p>
+<a id="more"></a>
 <h3 id="2、未翻-墙的情况下："><a href="#2、未翻-墙的情况下：" class="headerlink" title="2、未翻*墙的情况下："></a>2、未翻*墙的情况下：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$ gem sources --remove https://rubygems.org/</div><div class="line"></div><div class="line">$ gem sources -a https://ruby.taobao.org/</div><div class="line"></div><div class="line">$ gem sources -l</div><div class="line"></div><div class="line">*** CURRENT SOURCES ***</div><div class="line"></div><div class="line">https://ruby.taobao.org</div><div class="line"></div><div class="line">请确保只有ruby.taobao.org</div><div class="line"></div><div class="line">$ gem install sass</div></pre></td></tr></table></figure>
 <h2 id="二、webstorm参数配置"><a href="#二、webstorm参数配置" class="headerlink" title="二、webstorm参数配置"></a>二、webstorm参数配置</h2><p>1）打开webstorm-&gt;settings -&gt; tools -&gt; file watchers</p>
 <p>2）参数配置</p>
@@ -113,125 +193,76 @@ $ gem install sass
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">require &apos;compass/import-once/activate&apos;</div><div class="line"></div><div class="line">\# Require any additional compass plugins here.</div><div class="line"></div><div class="line">\# Set this to the root of your project when deployed:</div><div class="line"></div><div class="line">http_path = &quot;/&quot;</div><div class="line"></div><div class="line">css_dir = &quot;/pc/style/css&quot;</div><div class="line"></div><div class="line">sass_dir = &quot;/pc/style/sass&quot;</div><div class="line"></div><div class="line">images_dir = &quot;/pc/style/img&quot;</div><div class="line"></div><div class="line">javascripts_dir = &quot;/pc/js&quot;</div><div class="line"></div><div class="line">\# You can select your preferred output style here (can be overridden via the command line):</div><div class="line"></div><div class="line">\# output_style = :expanded or :nested or :compact or :compressed</div><div class="line"></div><div class="line">\# To enable relative paths to assets via compass helper functions. Uncomment:</div><div class="line"></div><div class="line">relative_assets = true</div><div class="line"></div><div class="line">\# To disable debugging comments that display the original location of your selectors. Uncomment:</div><div class="line"></div><div class="line">\# line_comments = false</div><div class="line"></div><div class="line">preferred_syntax = :sass</div></pre></td></tr></table></figure>
 <p>3）在webstorm的Terminal中输入$ compass watch即可</p>
 
-      
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://vquan.com/2017/01/23/webstorm上使用sass/" data-id="ciy9w0a1a0003gmxsfzszo9iw" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sass-前端/">sass,前端</a></li></ul>
-
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2017/01/23/crontab的一些使用/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          crontab的一些使用
-        
-      </div>
-    </a>
-  
-  
-</nav>
-
-  
 </article>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
+    <!-- Footer -->
+    <hr />
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/crontab-Linux/">crontab,Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git-版本控制/">git,版本控制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sass-前端/">sass,前端</a></li></ul>
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/victorquan" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2017 Victor<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
     </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/crontab-Linux/" style="font-size: 10px;">crontab,Linux</a> <a href="/tags/git-版本控制/" style="font-size: 10px;">git,版本控制</a> <a href="/tags/sass-前端/" style="font-size: 10px;">sass,前端</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2017/01/23/让git忽略ssl证书错误/">让git忽略ssl证书错误</a>
-          </li>
-        
-          <li>
-            <a href="/2017/01/23/crontab的一些使用/">crontab的一些使用</a>
-          </li>
-        
-          <li>
-            <a href="/2017/01/23/webstorm上使用sass/">webstorm上使用sass</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 Victor<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+
+
+    <!-- After footer scripts -->
     
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
-
-<script src="/js/script.js"></script>
-
-  </div>
 </body>
+
 </html>

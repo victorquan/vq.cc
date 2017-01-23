@@ -17,6 +17,8 @@ tags: sass,前端
 
 $ gem install sass
 
+<!--more-->
+
 ### 2、未翻*墙的情况下：
 ```
 $ gem sources --remove https://rubygems.org/
