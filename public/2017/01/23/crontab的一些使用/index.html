@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>crontab的一些使用 | 静静想你</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、安装12yum -y install vixie-cronyum -y install crontabs
+vixie-cron 软件包是 cron 的主程序；crontabs 软件包是用来安装、卸装、或列举用来驱动 cron 守护进程的表格的程序。
+二、配置需要手动启动crontab，设置开机自动启动123456service crond start    //启动服务service cron">
+<meta property="og:type" content="article">
+<meta property="og:title" content="crontab的一些使用">
+<meta property="og:url" content="http://vquan.com/2017/01/23/crontab的一些使用/index.html">
+<meta property="og:site_name" content="静静想你">
+<meta property="og:description" content="一、安装12yum -y install vixie-cronyum -y install crontabs
+vixie-cron 软件包是 cron 的主程序；crontabs 软件包是用来安装、卸装、或列举用来驱动 cron 守护进程的表格的程序。
+二、配置需要手动启动crontab，设置开机自动启动123456service crond start    //启动服务service cron">
+<meta property="og:updated_time" content="2017-01-23T08:21:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="crontab的一些使用">
+<meta name="twitter:description" content="一、安装12yum -y install vixie-cronyum -y install crontabs
+vixie-cron 软件包是 cron 的主程序；crontabs 软件包是用来安装、卸装、或列举用来驱动 cron 守护进程的表格的程序。
+二、配置需要手动启动crontab，设置开机自动启动123456service crond start    //启动服务service cron">
+  
+    <link rel="alternate" href="/atom.xml" title="静静想你" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">静静想你</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://vquan.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-crontab的一些使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/23/crontab的一些使用/" class="article-date">
+  <time datetime="2017-01-23T08:18:50.000Z" itemprop="datePublished">2017-01-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      crontab的一些使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum -y install vixie-cron</div><div class="line">yum -y install crontabs</div></pre></td></tr></table></figure>
+<p>vixie-cron 软件包是 cron 的主程序；<br>crontabs 软件包是用来安装、卸装、或列举用来驱动 cron 守护进程的表格的程序。</p>
+<h2 id="二、配置"><a href="#二、配置" class="headerlink" title="二、配置"></a>二、配置</h2><p>需要手动启动crontab，设置开机自动启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">service crond start    //启动服务</div><div class="line">service crond stop    //关闭服务</div><div class="line">service crond restart    //重启服务</div><div class="line">service crond reload    //重新载入配置</div><div class="line">service crond status    //查看crontab服务状态</div><div class="line">chkconfig --level 345 crond on    //centos开机自动启动</div></pre></td></tr></table></figure></p>
+<h2 id="三、crontab基本操作"><a href="#三、crontab基本操作" class="headerlink" title="三、crontab基本操作"></a>三、crontab基本操作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">crontab -u    //设定某个用户的cron服务，一般root用户在执行这个命令的时候需要此参数</div><div class="line">crontab -l    //列出某个用户cron服务的详细内容</div><div class="line">crontab -r    //删除没个用户的cron服务</div><div class="line">crontab -e    //编辑某个用户的cron服务</div></pre></td></tr></table></figure>
+<h2 id="四、时程表格式"><a href="#四、时程表格式" class="headerlink" title="四、时程表格式"></a>四、时程表格式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">时程表格式:</div><div class="line"></div><div class="line">f1  f2  f3  f4  f5program</div><div class="line"></div><div class="line">分　 时  日  月　 周　 命令</div><div class="line"></div><div class="line">f1表示分钟,1～59每分钟用*或者 */1表示</div><div class="line"></div><div class="line">f2表示小时,1～23（0表示0点）</div><div class="line"></div><div class="line">f3表示日期即一个月份中的第几日,1～31</div><div class="line"></div><div class="line">f4表示月份,1～12</div><div class="line"></div><div class="line">f5标识星期,0～6（0表示星期天）</div><div class="line"></div><div class="line">f6要执行的程序</div></pre></td></tr></table></figure>
+<h2 id="五、问题排除"><a href="#五、问题排除" class="headerlink" title="五、问题排除"></a>五、问题排除</h2><p>如果crontab安装正常、进程正常，脚本没跑起来，排查原因：</p>
+<h4 id="1）看log：-var-log-cron"><a href="#1）看log：-var-log-cron" class="headerlink" title="1）看log：/var/log/cron"></a>1）看log：/var/log/cron</h4><p>如果找不到/var/log/cron文件，则重启rsyslog：service rsyslog start</p>
+<h4 id="2）如果看到-var-log-cron文件报错：FAILED-to-open-PAM-security-session-Cannot-make-remove-an-entry-for-the-specified-session-，则说明是权限问题"><a href="#2）如果看到-var-log-cron文件报错：FAILED-to-open-PAM-security-session-Cannot-make-remove-an-entry-for-the-specified-session-，则说明是权限问题" class="headerlink" title="2）如果看到/var/log/cron文件报错：FAILED to open PAM security session (Cannot make/remove an entry for the specified session)，则说明是权限问题"></a>2）如果看到/var/log/cron文件报错：FAILED to open PAM security session (Cannot make/remove an entry for the specified session)，则说明是权限问题</h4><p>解决办法：把/etc/pam.d/crond文件中的“session    optional   pam_loginuid.so”注释掉，点击参考这里，然后重启crontab即可</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://vquan.com/2017/01/23/crontab的一些使用/" data-id="ciy9tskc500009bxshl5jr9fo" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/crontab-Linux/">crontab,Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/01/23/让git忽略ssl证书错误/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          让git忽略ssl证书错误
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/23/webstorm上使用sass/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">webstorm上使用sass</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/crontab-Linux/">crontab,Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git-版本控制/">git,版本控制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sass-前端/">sass,前端</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/crontab-Linux/" style="font-size: 10px;">crontab,Linux</a> <a href="/tags/git-版本控制/" style="font-size: 10px;">git,版本控制</a> <a href="/tags/sass-前端/" style="font-size: 10px;">sass,前端</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/01/23/让git忽略ssl证书错误/">让git忽略ssl证书错误</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/23/crontab的一些使用/">crontab的一些使用</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/23/webstorm上使用sass/">webstorm上使用sass</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Victor<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>让git忽略ssl证书错误 | 静静想你</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="当你通过HTTPS访问Git远程仓库，如果服务器的SSL证书未经过第三方机构签署，那么Git就会报错。这是十分合理的设计，毕竟未知的没有签署过的证书意味着很大安全风险。但是，如果你正好在架设Git服务器，而正式的SSL证书没有签发下来，你为了赶时间生成了自签署的临时证书，怎样才是最便捷的测试手段。
+一种比较好的做法：
+第一步，克隆远程仓库时，用env命令设置GIT_SSL_NO_VERIFY环境变">
+<meta property="og:type" content="article">
+<meta property="og:title" content="让git忽略ssl证书错误">
+<meta property="og:url" content="http://vquan.com/2017/01/23/让git忽略ssl证书错误/index.html">
+<meta property="og:site_name" content="静静想你">
+<meta property="og:description" content="当你通过HTTPS访问Git远程仓库，如果服务器的SSL证书未经过第三方机构签署，那么Git就会报错。这是十分合理的设计，毕竟未知的没有签署过的证书意味着很大安全风险。但是，如果你正好在架设Git服务器，而正式的SSL证书没有签发下来，你为了赶时间生成了自签署的临时证书，怎样才是最便捷的测试手段。
+一种比较好的做法：
+第一步，克隆远程仓库时，用env命令设置GIT_SSL_NO_VERIFY环境变">
+<meta property="og:updated_time" content="2017-01-23T08:23:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="让git忽略ssl证书错误">
+<meta name="twitter:description" content="当你通过HTTPS访问Git远程仓库，如果服务器的SSL证书未经过第三方机构签署，那么Git就会报错。这是十分合理的设计，毕竟未知的没有签署过的证书意味着很大安全风险。但是，如果你正好在架设Git服务器，而正式的SSL证书没有签发下来，你为了赶时间生成了自签署的临时证书，怎样才是最便捷的测试手段。
+一种比较好的做法：
+第一步，克隆远程仓库时，用env命令设置GIT_SSL_NO_VERIFY环境变">
+  
+    <link rel="alternate" href="/atom.xml" title="静静想你" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">静静想你</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://vquan.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-让git忽略ssl证书错误" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/23/让git忽略ssl证书错误/" class="article-date">
+  <time datetime="2017-01-23T08:21:21.000Z" itemprop="datePublished">2017-01-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      让git忽略ssl证书错误
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>当你通过HTTPS访问Git远程仓库，如果服务器的SSL证书未经过第三方机构签署，那么Git就会报错。这是十分合理的设计，毕竟未知的没有签署过的证书意味着很大安全风险。但是，如果你正好在架设Git服务器，而正式的SSL证书没有签发下来，你为了赶时间生成了自签署的临时证书，怎样才是最便捷的测试手段。</p>
+<p>一种比较好的做法：</p>
+<h3 id="第一步，克隆远程仓库时，用env命令设置GIT-SSL-NO-VERIFY环境变量为”ture”，并同时调用正常的git-clone命令。完整的命令如下："><a href="#第一步，克隆远程仓库时，用env命令设置GIT-SSL-NO-VERIFY环境变量为”ture”，并同时调用正常的git-clone命令。完整的命令如下：" class="headerlink" title="第一步，克隆远程仓库时，用env命令设置GIT_SSL_NO_VERIFY环境变量为”ture”，并同时调用正常的git clone命令。完整的命令如下："></a>第一步，克隆远程仓库时，用env命令设置GIT_SSL_NO_VERIFY环境变量为”ture”，并同时调用正常的git clone命令。完整的命令如下：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">env GIT_SSL_NO_VERIFY=true git clone https://&lt;host_name/git/project.git</div></pre></td></tr></table></figure>
+<h3 id="第二步，在克隆完毕的仓库中将http-sslVerify设置为”false”。完整的命令如下："><a href="#第二步，在克隆完毕的仓库中将http-sslVerify设置为”false”。完整的命令如下：" class="headerlink" title="第二步，在克隆完毕的仓库中将http.sslVerify设置为”false”。完整的命令如下："></a>第二步，在克隆完毕的仓库中将http.sslVerify设置为”false”。完整的命令如下：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config http.sslVerify&quot;false&quot;</div></pre></td></tr></table></figure>
+<p>以上方法应该是Git处理可信任的SSL临时证书很好的方法，第一步使用env命令保证了忽略证书错误是单次行为，不会成为默认的设置。第二次，则把忽略证书错误的设置限定在特定的仓库，避免扩大该设置的适用范围而引起的潜在安全风险。</p>
+<p>或者直接就使用命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config --global http.sslVerifyfalse</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://vquan.com/2017/01/23/让git忽略ssl证书错误/" data-id="ciy9tskce00039bxstmssezsd" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git-版本控制/">git,版本控制</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/01/23/crontab的一些使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">crontab的一些使用</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/crontab-Linux/">crontab,Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git-版本控制/">git,版本控制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sass-前端/">sass,前端</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/crontab-Linux/" style="font-size: 10px;">crontab,Linux</a> <a href="/tags/git-版本控制/" style="font-size: 10px;">git,版本控制</a> <a href="/tags/sass-前端/" style="font-size: 10px;">sass,前端</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/01/23/让git忽略ssl证书错误/">让git忽略ssl证书错误</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/23/crontab的一些使用/">crontab的一些使用</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/23/webstorm上使用sass/">webstorm上使用sass</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Victor<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
