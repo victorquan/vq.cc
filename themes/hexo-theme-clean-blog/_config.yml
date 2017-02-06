@@ -3,7 +3,7 @@ menu:
   Home: /
   Archives: /archives
   Github:
-    url: https://github.com/klugjo/hexo-theme-clean-blog
+    url: https://github.com/victorquan
     icon: github
 
 # Title on top left of menu. Leave empty to use main blog title
@@ -38,7 +38,7 @@ favicon:
 twitter_url:
 twitter_handle:
 facebook_url:
-github_url: https://github.com/klugjo/hexo-theme-clean-blog
+github_url: https://github.com/victorquan
 gitlab_url:
 linkedin_url:
 mailto:

@@ -9,14 +9,14 @@ menu:
   Tags: tags
   Categories: categories
   About: about
-  Github: https://github.com/stiekel/hexo-theme-random
+  Github: https://github.com/victorquan
 
 social:
-  GitHub: https://github.com/stiekel/hexo-theme-random
-  Coding.NET: https://coding.net/u/Stiekel
-  Twitter: https://twitter.com/SidCN
-  Weibo: http://weibo.com/sidcn
-  DouBan: http://www.douban.com/people/Stiekel/
+  GitHub: https://github.com/victorquan
+#  Coding.NET: https://coding.net
+#  Twitter: https://twitter.com
+  Weibo: http://weibo.com/u/2115385703
+#  DouBan: http://www.douban.com
 
 # Google analytics
 google_analytics:
