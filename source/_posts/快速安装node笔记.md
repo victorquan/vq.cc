@@ -38,9 +38,4 @@ nvm alias default v6.9.5
 nvm ls
 ```
 
-### hexo官网
-[hexo官网](https://hexo.io/zh-cn/)
-
-[github](https://github.com/hexojs/hexo/)
-
 
