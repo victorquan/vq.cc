@@ -4,8 +4,6 @@ date: 2017-02-21 11:01:04
 tags:
 ---
 
-## 快速安装node
-
 ### 安装nvm：
 ```
 git clone https://github.com/creationix/nvm.git .nvm
