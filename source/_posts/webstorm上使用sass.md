@@ -52,7 +52,7 @@ Working directory：$FileDir$
 Output paths to refresh：$FileNameWithoutExtension$.css
 ```
 
-![webstorm参数配置](css/images/webstorm-sass-config.png)
+![webstorm参数配置](/css/images/webstorm-sass-config.png)
 
 
 
