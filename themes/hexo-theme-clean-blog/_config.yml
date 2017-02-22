@@ -31,7 +31,12 @@ comments:
     comment_colorscheme: light
 
 # Google Analytics Tracking ID
-google_analytics: 141055237
+google_analytics:
+
+# baidu Analytics ID add by victor.quan
+# 百度统计 http://sitecenter.baidu.com/sc-web/
+# 查看代码，填入 //hm.baidu.com/hm.js? 之后的内容
+baidu_analytics: 8ca059faeae2d9a8d6316e3e4547dbab
 
 # Addthis ID
 addthis:
