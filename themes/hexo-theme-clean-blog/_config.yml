@@ -30,6 +30,10 @@ comments:
     comment_count: 5
     comment_colorscheme: light
 
+  # 有言评论系统 www.uyan.cc
+  uyan:
+    id: 2125856
+
 # Google Analytics Tracking ID
 google_analytics:
 
