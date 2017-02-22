@@ -38,6 +38,13 @@ google_analytics:
 # 查看代码，填入 //hm.baidu.com/hm.js? 之后的内容
 baidu_analytics: 8ca059faeae2d9a8d6316e3e4547dbab
 
+# 排除以下调试ip不统计
+isIgnoreSpecialHostVisitor: true
+ignoreHostList:
+  - localhost
+  - 127.0.0.1
+
+
 # Addthis ID
 addthis:
 

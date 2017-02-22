@@ -92,8 +92,26 @@
     <!-- Gallery -->
     <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
 
+
+    <!-- 排除本地测试地址 S -->
+    <script type="text/javascript">
+        var isIgnoreHost = false;
+        var ignoreHostList = ('<%=config.theme.ignoreHostList || theme.ignoreHostList%>').split(',');
+        if(window && window.location && window.location.host){
+            for(var i = 0; i < ignoreHostList.length; i++){
+                if(window.location.host.indexOf(ignoreHostList[i])){
+                    isIgnoreHost = true;
+                    break;
+                }
+            }
+        }
+        var isTriggerAnalytics = !((JSON.parse('<%=config.isIgnoreSpecialHostVisitor || theme.isIgnoreSpecialHostVisitor%>')) && isIgnoreHost);
+    </script>
+    <!-- 排除本地测试地址 E -->
+
     <!-- Google Analytics -->
     <%- partial('google-analytics') %>
+
 
     <!-- baidu Analytics -->
     <%- partial('baidu-analytics') %>
