@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 键客
+title: 恠迗涯尋覓伱
 subtitle:
 description: 这是静静的窝
 author: victor quan
@@ -48,6 +48,10 @@ highlight:
 default_category: uncategorized
 category_map:
 tag_map:
+  - crontab-Linux
+  - git-版本控制
+  - Mac-代理-终端
+  - sass-前端
 
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date

@@ -16,6 +16,9 @@ index_cover: http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/
 # Default post title
 default_post_title: Untitled
 
+# 分享
+share: true
+
 # Comments. Choose one by filling up the information
 comments:
   # Disqus comments
