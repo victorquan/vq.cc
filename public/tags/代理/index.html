@@ -20,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="让git忽略ssl证书错误"/>
+        <meta property="og:title" content="恠迗涯尋覓伱"/>
     
 
     <!--Open Graph Description-->
@@ -33,7 +33,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="article" />
+        <meta property="og:type" content="website" />
     
 
     <!--Page Cover-->
@@ -44,7 +44,7 @@
 
     <!-- Title -->
     
-    <title>让git忽略ssl证书错误 - 恠迗涯尋覓伱</title>
+    <title>代理 - 恠迗涯尋覓伱</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -174,101 +174,50 @@
 </nav>
 
     <!-- Main Content -->
-    <!-- Page Header -->
-<!-- Set your background image for this header in your post front-matter: cover -->
+    
 
+<!-- Page Header -->
+<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <h1>让git忽略ssl证书错误</h1>
-                    
-                    <span class="meta">
-                        <!-- Date and Author -->
-                        
-                        2017-01-23
-                    </span>
+                <div class="site-heading">
+                    <h1>#代理</h1>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-
-            <!-- Tags and categories -->
-           
-                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
-                    
-                        
-
-
-<a href="/tags/git/">#git</a> <a href="/tags/版本控制/">#版本控制</a>
-
-
-                    
-                </div>
-                <div class="col-lg-4 col-md-5 post-categories">
-                    
-                </div>
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             
-
-            <!-- Gallery -->
+                <div class="post-preview">
+    <a href="/2017/02/22/配置自己的MAC/">
+        <h1 class="post-title archive">
+            配置自己的MAC
+        </h1>
+    </a>
+    <p class="post-meta archive">
+        <!-- Date and Author -->
+        
+        2017-02-22
+    </p>
+</div>
             
-
-            <!-- Post Main Content -->
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>当你通过HTTPS访问Git远程仓库，如果服务器的SSL证书未经过第三方机构签署，那么Git就会报错。这是十分合理的设计，毕竟未知的没有签署过的证书意味着很大安全风险。但是，如果你正好在架设Git服务器，而正式的SSL证书没有签发下来，你为了赶时间生成了自签署的临时证书，怎样才是最便捷的测试手段。</p>
-<a id="more"></a>
-<p>一种比较好的做法：</p>
-<h3 id="第一步，克隆远程仓库时，用env命令设置GIT-SSL-NO-VERIFY环境变量为”ture”，并同时调用正常的git-clone命令。完整的命令如下："><a href="#第一步，克隆远程仓库时，用env命令设置GIT-SSL-NO-VERIFY环境变量为”ture”，并同时调用正常的git-clone命令。完整的命令如下：" class="headerlink" title="第一步，克隆远程仓库时，用env命令设置GIT_SSL_NO_VERIFY环境变量为”ture”，并同时调用正常的git clone命令。完整的命令如下："></a>第一步，克隆远程仓库时，用env命令设置GIT_SSL_NO_VERIFY环境变量为”ture”，并同时调用正常的git clone命令。完整的命令如下：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">env GIT_SSL_NO_VERIFY=true git clone https://&lt;host_name/git/project.git</div></pre></td></tr></table></figure>
-<h3 id="第二步，在克隆完毕的仓库中将http-sslVerify设置为”false”。完整的命令如下："><a href="#第二步，在克隆完毕的仓库中将http-sslVerify设置为”false”。完整的命令如下：" class="headerlink" title="第二步，在克隆完毕的仓库中将http.sslVerify设置为”false”。完整的命令如下："></a>第二步，在克隆完毕的仓库中将http.sslVerify设置为”false”。完整的命令如下：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config http.sslVerify&quot;false&quot;</div></pre></td></tr></table></figure>
-<p>以上方法应该是Git处理可信任的SSL临时证书很好的方法，第一步使用env命令保证了忽略证书错误是单次行为，不会成为默认的设置。第二次，则把忽略证书错误的设置限定在特定的仓库，避免扩大该设置的适用范围而引起的潜在安全风险。</p>
-<p>或者直接就使用命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config --global http.sslVerifyfalse</div></pre></td></tr></table></figure></p>
-
-
-                
-            </div>
-
-            <!-- Comments -->
-            
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                
-<!-- JiaThis Button BEGIN -->
-<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?btn=r2.gif" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
-
-            </div>
-            
-
-            <!-- Comments -->
-            
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    
-
-
-
-
-    <hr />
-    <h3>留言:</h3>
-
-    <!-- UY BEGIN -->
-    <div id="uyan_frame"></div>
-    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2125856"></script>
-    <!-- UY END -->
-
-
-                </div>
-            
+            <div class="archive-before-pagination"></div>
+            <ul class="pager">
+    
+    
+</ul>
         </div>
     </div>
-</article>
+</div>
+
+
 
     <!-- Footer -->
     <hr />
