@@ -1,7 +1,7 @@
 ---
 title: 配置自己的MAC
 date: 2017-02-22 13:10:42
-tags: Mac,代理,终端
+tags: [Mac,代理,终端]
 ---
 
 
@@ -12,7 +12,7 @@ $ curl -LsSf http://github.com/mxcl/homebrew/tarball/master | sudo tar xvz -C/us
 
 ### 二、安装 Solarized 配色工具
 
-    Solarized是目前最完整的Terminal/Editor/IDE配色项目，要在 Mac OS X 终端里舒服的使用命令行（至少）需要给3个工具配色，terminal、vim 和 ls。这里不得不提和Terminal相同功能的工具iTerm2。
+Solarized是目前最完整的Terminal/Editor/IDE配色项目，要在 Mac OS X 终端里舒服的使用命令行（至少）需要给3个工具配色，terminal、vim 和 ls。这里不得不提和Terminal相同功能的工具iTerm2。
 
 
 #### 1、下载 Solarized：
@@ -22,11 +22,11 @@ $ git clone git://github.com/altercation/solarized.git
 
 #### 2、配色方案 Solarized 导入
     
-    Mac OS X 自带的 Terminal 和免费的 iTerm2 都是很好用的工具，iTerm2 可以切分成多窗口，更方便一些。
-    
-    如果你使用的是 Terminal，在solarized/osx-terminal.app-colors-solarized 下双击 Solarized Dark ansi.terminal 和 Solarized Light ansi.terminal 就会自动导入两种配色方案 Dark 和 Light 到 Terminal.app 里。
-    
-    如果你使用的是 iTerm2 的话，到 solarized/iterm2-colors-solarized 下双击 Solarized Dark.itermcolors 和 Solarized Light.itermcolors 两个文件就可以把配置文件导入到 iTerm 里。
+Mac OS X 自带的 Terminal 和免费的 iTerm2 都是很好用的工具，iTerm2 可以切分成多窗口，更方便一些。
+
+如果你使用的是 Terminal，在solarized/osx-terminal.app-colors-solarized 下双击 Solarized Dark ansi.terminal 和 Solarized Light ansi.terminal 就会自动导入两种配色方案 Dark 和 Light 到 Terminal.app 里。
+
+如果你使用的是 iTerm2 的话，到 solarized/iterm2-colors-solarized 下双击 Solarized Dark.itermcolors 和 Solarized Light.itermcolors 两个文件就可以把配置文件导入到 iTerm 里。
 
 #### 3、vim的配色最好和终端一致
 ```    
@@ -41,7 +41,7 @@ $ vi ~/.vimrc 添加以下代码
 ```
     
 #### 4、ls
-    MacOSX是基于FreeBSD的，所以一些工具ls，top等都是BSD那一套，ls不是GNU ls，所以即使 Terminal / iTerm2 配置了颜色，但是在Mac上敲入ls命令也不会显示高亮，可以通过安装coreutils来解决（brew install coreutils），不过如果对ls颜色不挑剔的话有个简单办法就是在 .bash_profile 里输出 CLICOLOR=1：
+MacOSX是基于FreeBSD的，所以一些工具ls，top等都是BSD那一套，ls不是GNU ls，所以即使 Terminal / iTerm2 配置了颜色，但是在Mac上敲入ls命令也不会显示高亮，可以通过安装coreutils来解决（brew install coreutils），不过如果对ls颜色不挑剔的话有个简单办法就是在 .bash_profile 里输出 CLICOLOR=1：
 
 ```
 $ vi ~/.bash_profile
@@ -69,7 +69,7 @@ $ vim ~/.bash_profile 添加以下代码
 ```
 
 ### 三、增强命令行工具
-    添加ll、l、la指令
+添加ll、l、la指令
 
 ```
 $ vim ~/.bash_profile 添加以下代码
@@ -80,8 +80,8 @@ $ vim ~/.bash_profile 添加以下代码
 
 
 ### 四、补充
-    也可以玩一下 Terminal + Tmux、zsh + oh-my-zsh + powerline 一套。
-    windows下的 [babun](http://babun.github.io/) 也不错
+也可以玩一下 Terminal + Tmux、zsh + oh-my-zsh + powerline 一套。
+windows下的 [babun](http://babun.github.io/) 也不错
 
 
 ### 五、安装homebrew、solarized
@@ -121,8 +121,8 @@ $ sudo whistle start
 ### 七、安装markdown转成ppt插件landslide
 [参考landslide](https://github.com/adamzap/landslide)
 
-    如果你还未安装pip，见 [https://pip.pypa.io/en/latest/installing/](https://pip.pypa.io/en/latest/installing/)
-    使用方法
+如果你还未安装pip，见 [https://pip.pypa.io/en/latest/installing/](https://pip.pypa.io/en/latest/installing/)
+使用方法
 
 ```
 $ landslide test.md -i -o > test.html

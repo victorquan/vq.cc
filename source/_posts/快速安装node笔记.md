@@ -1,7 +1,7 @@
 ---
-title: 快速安装node
+title: nvm快速安装node
 date: 2017-02-21 11:01:04
-tags:
+tags: [node,nvm]
 ---
 
 ### 安装nvm：

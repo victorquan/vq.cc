@@ -1,7 +1,7 @@
 ---
 title: crontab的一些使用
 date: 2017-01-23 16:18:50
-tags: crontab,Linux
+tags: [crontab,Linux]
 ---
 ## 一、安装
 ```
