@@ -1,7 +1,7 @@
 ---
 title: about me
 date: 2017-02-23 13:14:14
-cover: /img/contact-bg.jpg
+cover: /img/about-bg.jpg
 comments: false
 ---
 
