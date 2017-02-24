@@ -99,7 +99,7 @@
         var ignoreHostList = ('<%=config.theme.ignoreHostList || theme.ignoreHostList%>').split(',');
         if(window && window.location && window.location.host){
             for(var i = 0; i < ignoreHostList.length; i++){
-                if(window.location.host.indexOf(ignoreHostList[i])){
+                if(window.location.host.indexOf(ignoreHostList[i]) >= 0){
                     isIgnoreHost = true;
                     break;
                 }

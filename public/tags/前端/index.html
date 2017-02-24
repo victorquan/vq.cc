@@ -74,7 +74,7 @@
         var ignoreHostList = ('localhost,127.0.0.1').split(',');
         if(window && window.location && window.location.host){
             for(var i = 0; i < ignoreHostList.length; i++){
-                if(window.location.host.indexOf(ignoreHostList[i])){
+                if(window.location.host.indexOf(ignoreHostList[i]) >= 0){
                     isIgnoreHost = true;
                     break;
                 }
