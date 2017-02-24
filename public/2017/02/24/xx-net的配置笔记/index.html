@@ -20,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="恠迗涯尋覓伱"/>
+        <meta property="og:title" content="XX-net的配置笔记"/>
     
 
     <!--Open Graph Description-->
@@ -33,7 +33,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -44,7 +44,7 @@
 
     <!-- Title -->
     
-    <title>恠迗涯尋覓伱</title>
+    <title>XX-net的配置笔记 - 恠迗涯尋覓伱</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -175,126 +175,130 @@
 
     <!-- Main Content -->
     <!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
 <header class="intro-header" style="background-image: url('/img/sea2.png')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>恠迗涯尋覓伱</h1>
-                    <hr class="small">
-                    <span class="subheading"></span>
+                <div class="post-heading">
+                    <h1>XX-net的配置笔记</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-02-24
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            
-                <div class="post-preview">
-    <a href="/2017/02/24/xx-net的配置笔记/">
-        <h2 class="post-title">
-            XX-net的配置笔记
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2017-02-24
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2017/02/22/配置自己的MAC/">
-        <h2 class="post-title">
-            配置自己的MAC
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2017-02-22
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2017/02/21/快速安装node笔记/">
-        <h2 class="post-title">
-            nvm快速安装node
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2017-02-21
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2017/01/23/让git忽略ssl证书错误/">
-        <h2 class="post-title">
-            让git忽略ssl证书错误
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2017-01-23
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2017/01/23/crontab的一些使用/">
-        <h2 class="post-title">
-            crontab的一些使用
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2017-01-23
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2017/01/23/webstorm上使用sass/">
-        <h2 class="post-title">
-            webstorm上使用sass
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2017-01-23
-    </p>
-</div>
-<hr>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/xx-net/">#xx-net</a> <a href="/tags/Internet/">#Internet</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
             
 
-            <ul class="pager">
-    
-    
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>昨晚<a href="https://www.v2ex.com/t/342757#reply46" target="_blank" rel="external">全球最大的同性交友网站 Github 上不去了</a>！</p>
+<p>感觉我们就像是在一个庞大的局域网中不亦乐乎地生活着，作为对科学技术有浓厚兴趣的每一位朋友来讲，学会科学合法上网非常有必要。</p>
+<p>今天笔者将记录一种科学上网的一种方法（仅介绍Mac下），方便自己日后再次使用。如果能给大家带来微小的帮助的话，我也很开心。</p>
+<h4 id="1、首先下载xx-net源码"><a href="#1、首先下载xx-net源码" class="headerlink" title="1、首先下载xx-net源码"></a>1、首先下载xx-net源码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd ~</div><div class="line">$ git clone https://github.com/XX-net/XX-Net.git</div></pre></td></tr></table></figure>
+<p>源项目详见：<a href="https://github.com/XX-net/XX-Net" target="_blank" rel="external">xx-net</a></p>
+<h4 id="2、安装chrome-SwitchyOmega扩展"><a href="#2、安装chrome-SwitchyOmega扩展" class="headerlink" title="2、安装chrome SwitchyOmega扩展"></a>2、安装chrome SwitchyOmega扩展</h4><p>在以下文章中，我有介绍过安装SwitchyOmega扩展的方法：<br><a href="http://victorquan.com/2017/02/22/%E9%85%8D%E7%BD%AE%E8%87%AA%E5%B7%B1%E7%9A%84MAC/" target="_blank" rel="external">SwitchyOmega安装</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ wget https://github.com/victorquan/Mac-Terminal-and-Vim-configuration/blob/master/SwitchyOmega.crx</div></pre></td></tr></table></figure>
+<h4 id="3、启动xx-net"><a href="#3、启动xx-net" class="headerlink" title="3、启动xx-net"></a>3、启动xx-net</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ~/XX-net/start</div></pre></td></tr></table></figure>
+<p>如果你不想使用XX-net自带的公共appid的话，那么需要按照以下方法申请自己的appid</p>
+<h4 id="4、登录google账户"><a href="#4、登录google账户" class="headerlink" title="4、登录google账户"></a>4、登录google账户</h4><p>进入<a href="https://www.google.com/ncr" target="_blank" rel="external">https://www.google.com/ncr</a></p>
+<h4 id="5、创建appid"><a href="#5、创建appid" class="headerlink" title="5、创建appid"></a>5、创建appid</h4><p>点击页面右上角“project”-&gt;“创建项目”，输入“项目名称”之后自动为你生成了一个appid，把它记下来。</p>
+<p><img src="/img/xx-net/createPrj.png" alt="创建appid"></p>
+<h4 id="6、设置appid引擎"><a href="#6、设置appid引擎" class="headerlink" title="6、设置appid引擎"></a>6、设置appid引擎</h4><p>进入<a href="https://console.cloud.google.com/start" target="_blank" rel="external">https://console.cloud.google.com/start</a></p>
+<p>点击激活云端shell，如下图所示</p>
+<p><img src="/img/xx-net/shell.png" alt="激活shell"></p>
+<p>等激活云端shell之后，输入以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ gcloud config set project 刚才记下来的appid</div><div class="line">$ gcloud beta app create --region us-central</div></pre></td></tr></table></figure>
+<p>当显示success之后表示已设置成功</p>
+<p>反复操作5、6步骤可以重复创建多个appid，最多可以创建12个。</p>
+<h4 id="7、部署服务端配置"><a href="#7、部署服务端配置" class="headerlink" title="7、部署服务端配置"></a>7、部署服务端配置</h4><ul>
+<li><p>1）打开设置页：<a href="http://127.0.0.1:8085/" target="_blank" rel="external">http://127.0.0.1:8085/</a></p>
+</li>
+<li><p>2）如下图输入appid，点击“开始部署”</p>
+</li>
 </ul>
+<p><img src="/img/xx-net/deploySetting.png" alt="部署服务端"></p>
+<ul>
+<li>3）配置GAEProxy</li>
+</ul>
+<p><img src="/img/xx-net/config.png" alt="配置GAEProxy"></p>
+<ul>
+<li>4）确认状态</li>
+</ul>
+<p><img src="/img/xx-net/status.png" alt="确认状态"></p>
+<ul>
+<li>5）done</li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+<!-- JiaThis Button BEGIN -->
+<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?btn=r2.gif" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+
+            </div>
+            
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+
+
+    <hr />
+    <h3>留言:</h3>
+
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2125856"></script>
+    <!-- UY END -->
+
+
+                </div>
+            
         </div>
     </div>
-</div>
-
-
+</article>
 
     <!-- Footer -->
     <hr />
