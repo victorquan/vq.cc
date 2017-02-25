@@ -83,10 +83,9 @@ theme: hexo-theme-clean-blog
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   - type: git
-    repo: https://github.com/victorquan/victorquan.github.io.git
-    branch: master
-  - type: git
-    repo: https://git.coding.net/victorquan/myBlog.git
+    repo:
+      github: https://github.com/victorquan/victorquan.github.io.git
+      coding: https://git.coding.net/victorquan/myBlog.git
     branch: master
 
 
