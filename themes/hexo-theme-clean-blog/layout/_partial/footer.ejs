@@ -1,5 +1,6 @@
 <hr />
 
+<%if(0){%>
 <!-- Footer -->
 <footer>
     <div class="container">
@@ -79,3 +80,72 @@
         </div>
     </div>
 </footer>
+
+
+<%}else{%>
+
+
+<!-- Footer -->
+<footer>
+    <div class="container social-icon">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+
+                    <% if (theme.github_url) { %>
+                        <li>
+                            <a class="fa github-icon" href="<%- theme.github_url%>" target="_blank"></a>
+                        </li>
+                    <% } %>
+
+                    <% if (theme.facebook_url) { %>
+                        <li>
+                            <a class="fa facebook-icon" href="<%- theme.facebook_url%>" target="_blank"></a>
+                        </li>
+                    <% } %>
+
+                    <% if (theme.v2ex_url) { %>
+                        <li>
+                            <a class="fa v2ex-icon" href="<%- theme.v2ex_url%>" target="_blank"></a>
+                        </li>
+                    <% } %>
+                    <% if (theme.segmentfault_url) { %>
+                        <li>
+                            <a class="fa segmentfault-icon" href="<%- theme.segmentfault_url%>" target="_blank"></a>
+                        </li>
+                    <% } %>
+                    <% if (theme.oschina_url) { %>
+                        <li>
+                            <a class="fa oschina-icon" href="<%- theme.oschina_url%>" target="_blank"></a>
+                        </li>
+                    <% } %>
+                    <% if (theme.weibo_url) { %>
+                        <li>
+                            <a class="fa weibo-icon" href="<%- theme.weibo_url%>" target="_blank"></a>
+                        </li>
+                    <% } %>
+                    <% if (theme.jianshu_url) { %>
+                        <li>
+                            <a class="fa jianshu-icon" href="<%- theme.jianshu_url%>" target="_blank"></a>
+                        </li>
+                    <% } %>
+                    <% if (theme.coding_url) { %>
+                        <li>
+                            <a class="fa coding-icon" href="<%- theme.coding_url%>" target="_blank"></a>
+                        </li>
+                    <% } %>
+
+                </ul>
+                <p class="copyright text-muted">&copy; 2016-<%= date(new Date(), 'YYYY') %> <%= config.author || config.title %> | Powered by <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">clean-blog</a><br></p>
+                <p class="copyright text-muted">友情链接：
+                    <a target="_blank" href="http://www.wklken.me/">wklken</a>
+                    &nbsp
+                    <a target="_blank" href="http://www.litten.me/">litten</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<%}%>
+

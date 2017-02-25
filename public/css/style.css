@@ -441,6 +441,72 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: #0085a1;
 }
+.social-icon {
+  margin-top: 10px;
+  text-align: center;
+  font-family: Arial;
+}
+.social-icon a {
+  text-decoration: none;
+}
+.social-icon .fa {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin: 0 2px 6px;
+  vertical-align: middle;
+  font-size: 21.12px;
+  line-height: 32px;
+  text-align: center;
+  color: #fff;
+  background: #6f7170;
+  opacity: i-opacity;
+  box-shadow: 1px 2px 2px rgba(0,0,0,0.1), 1px 1px 3px rgba(0,0,0,0.3);
+}
+.social-icon .fa:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+.social-icon .facebook-icon {
+  background: #3b5998;
+}
+.social-icon .facebook-icon::before {
+  content: '\f09a';
+}
+.social-icon .v2ex-icon {
+  background: url("/img/v2ex.png") center no-repeat #e4cdb4;
+  background-size: 78%;
+}
+.social-icon .segmentfault-icon {
+  background: url("/img/segmentfault.png") center no-repeat #018f56;
+  background-size: 80%;
+}
+.social-icon .oschina-icon {
+  background: url("/img/oschina.png") center no-repeat #018f56;
+  background-size: 70%;
+}
+.social-icon .weibo-icon {
+  background: url("/img/weibo.png") center no-repeat #ecc260;
+  background-size: 80%;
+}
+.social-icon .jianshu-icon {
+  background: url("/img/jianshu.png") center no-repeat #e99888;
+  background-size: 82%;
+}
+.social-icon .coding-icon {
+  background: url("/img/Coding.png") center no-repeat #fff;
+  background-size: 88%;
+}
+.social-icon .github-icon {
+  background: url("/img/github-octocat.svg") no-repeat #fff;
+  background-size: 90%;
+  background-position: 50% 100%;
+}
+.social-icon .CodePen {
+  background: url("/img/codepen-icon.svg") no-repeat #000;
+  background-size: 70%;
+  background-position: 50% 50%;
+}
 article .container .row img {
   max-width: 100% !important;
   height: auto;

@@ -62,10 +62,17 @@ favicon: /favicon.ico
 # Social Accounts
 twitter_url:
 twitter_handle:
-facebook_url:
+facebook_url: https://www.facebook.com/victor.quan.758
 github_url: https://github.com/victorquan
 gitlab_url:
 linkedin_url:
+jianshu_url: http://www.jianshu.com/u/97adfad91019
+weibo_url: http://weibo.com/u/2115385703
+oschina_url: https://my.oschina.net/u/2335354/home
+v2ex_url: https://www.v2ex.com/member/VictorChaun
+segmentfault_url: https://segmentfault.com/u/ivictorchaun
+coding_url: https://coding.net/u/victorquan
+
 #oschina_url: https://my.oschina.net/u/2335354
 #v2ex_url: https://www.v2ex.com/member/VictorChaun
 #segmentfault_url: https://segmentfault.com/u/ivictorchaun

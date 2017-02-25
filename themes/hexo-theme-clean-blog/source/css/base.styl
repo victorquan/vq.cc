@@ -338,3 +338,67 @@ img::-moz-selection
 
 body
   webkit-tap-highlight-color brand-primary
+
+/* 社交图标样式 */
+.social-icon
+    a
+        text-decoration: none
+    margin-top 10px
+    text-align center
+    font-family Arial
+    .fa
+        width 32px
+        height @width
+        border-radius 50%
+        margin 0 2px 6px
+        vertical-align middle
+        font-size .66*@width
+        line-height @width
+        text-align center
+        color white
+        background #6f7170
+        opacity i-opacity
+        box-shadow 1px 2px 2px rgba(0,0,0, .1), 1px 1px 3px rgba(0,0,0, .3)
+        &:hover
+            opacity 1
+            transform scale(1.1)
+
+    .facebook-icon
+        background #3b5998
+        &::before
+            content '\f09a'
+
+    .v2ex-icon
+        background url(/img/v2ex.png) center no-repeat #e4cdb4
+        background-size 78%
+
+    .segmentfault-icon
+        background url(/img/segmentfault.png) center no-repeat #018f56
+        background-size 80%
+
+    .oschina-icon
+        background url(/img/oschina.png) center no-repeat #018f56
+        background-size 70%
+
+    .weibo-icon
+        background url(/img/weibo.png) center no-repeat #ecc260
+        background-size 80%
+
+    .jianshu-icon
+        background url(/img/jianshu.png) center no-repeat #e99888
+        background-size 82%
+
+    .coding-icon
+        background url(/img/Coding.png) center no-repeat white
+        background-size 88%
+
+    .github-icon
+        background url(/img/github-octocat.svg) no-repeat white
+        background-size 90%
+        background-position 50% 100%
+
+    .CodePen
+      background url(/img/codepen-icon.svg) no-repeat black
+      background-size 70%
+      background-position 50% 50%
+
