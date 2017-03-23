@@ -35,14 +35,14 @@ comments:
 
   # 有言评论系统 www.uyan.cc
   uyan:
-#    id: 2125856
-    id:
+    id: 2125856
 
   # 是否开启多说评论，http://duoshuo.com/create-site/
   # 使用上面网址登陆你的多说，然后创建站点，在 domain 中填入你设定的域名前半部分
   # http://<要填的部分>.duoshuo.com (domain只填上<>里的内容，不要填整个网址)
+  # 多说将于2017-6-1关闭 详见:http://dev.duoshuo.com/threads/58d1169ae293b89a20c57241
   duoshuo:
-    domain: victorquancom
+    domain:
 
 
 # Google Analytics Tracking ID
