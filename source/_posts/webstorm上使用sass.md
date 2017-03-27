@@ -2,6 +2,7 @@
 title: webstorm上使用sass
 date: 2017-01-23 16:00:29
 tags: [sass,前端]
+cover: /img/sea1.png
 ---
 
 
