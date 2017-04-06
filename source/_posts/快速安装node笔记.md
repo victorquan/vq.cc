@@ -17,7 +17,6 @@ source ~/.nvm/nvm.sh
 ### 永久配置淘宝源：
 ```
 export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
-source ~/git/nvm/nvm.sh
 ```
 
 <!--more-->
