@@ -17,7 +17,7 @@ tags: [git]
 ```
 
 ## 三、下载git安装包
-在 [这里] (https://www.kernel.org/pub/software/scm/git/)查看并选择git版本
+在 [这里](https://www.kernel.org/pub/software/scm/git/) 查看并选择git版本
 
 ```
 # cd /usr/src
