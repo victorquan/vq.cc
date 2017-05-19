@@ -1,5 +1,5 @@
 ---
-title: centos 升级git 1.13.0
+title: centos 升级git 2.13.0
 date: 2017-05-19 08:23:38
 cover:
 tags: [git]
