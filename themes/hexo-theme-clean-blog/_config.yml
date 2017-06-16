@@ -51,7 +51,7 @@ comments:
     owner_id: 11642626
     client_id: 24d1a166f2ff57962706
     client_secret: bdbd5e4b66f0bed78cb7f1993f83537e2e29fd30
-    comment_repo: https://github.com/victorquan/my-blog-comment.git
+    comment_repo: my-blog-comment
 
 
 # Google Analytics Tracking ID
