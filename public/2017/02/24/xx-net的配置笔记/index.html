@@ -289,14 +289,25 @@
 
 
 
-    <hr />
-    <h3>留言:</h3>
 
-    <!-- UY BEGIN -->
-    <div id="uyan_frame"></div>
-    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2125856"></script>
-    <!-- UY END -->
 
+
+
+    <div id="container"></div>
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: location.href, // 可选。默认为 location.href
+            owner: "11642626",//查看https://api.github.com/users/用户名h
+            repo: "https://github.com/victorquan/my-blog-comment.git",
+            oauth: {
+                client_id: "24d1a166f2ff57962706",
+                client_secret: "bdbd5e4b66f0bed78cb7f1993f83537e2e29fd30",
+            }
+        });
+        gitment.render('container');
+    </script>
 
 
 

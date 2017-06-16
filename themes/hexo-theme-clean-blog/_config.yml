@@ -35,7 +35,8 @@ comments:
 
   # 有言评论系统 www.uyan.cc
   uyan:
-    id: 2125856
+    #id: 2125856
+    id:
 
   # 是否开启多说评论，http://duoshuo.com/create-site/
   # 使用上面网址登陆你的多说，然后创建站点，在 domain 中填入你设定的域名前半部分
@@ -43,6 +44,14 @@ comments:
   # 多说将于2017-6-1关闭 详见:http://dev.duoshuo.com/threads/58d1169ae293b89a20c57241
   duoshuo:
     domain:
+
+  # https://github.com/imsun/gitment
+  # https://imsun.net/posts/gitment-introduction/
+  git_ment:
+    owner_id: 11642626
+    client_id: 24d1a166f2ff57962706
+    client_secret: bdbd5e4b66f0bed78cb7f1993f83537e2e29fd30
+    comment_repo: https://github.com/victorquan/my-blog-comment.git
 
 
 # Google Analytics Tracking ID

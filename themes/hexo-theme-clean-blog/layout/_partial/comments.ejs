@@ -55,3 +55,22 @@
     <!-- 多说公共JS代码 end -->
 
 <% } %>
+
+<% if(page.comments && theme.comments && theme.comments.git_ment.owner_id){ %>
+    <div id="container"></div>
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: location.href, // 可选。默认为 location.href
+            owner: "<%= theme.comments.git_ment.owner_id %>",//查看https://api.github.com/users/用户名h
+            repo: "<%= theme.comments.git_ment.comment_repo %>",
+            oauth: {
+                client_id: "<%= theme.comments.git_ment.client_id %>",
+                client_secret: "<%= theme.comments.git_ment.client_secret %>",
+            }
+        });
+        gitment.render('container');
+    </script>
+<% } %>
+
