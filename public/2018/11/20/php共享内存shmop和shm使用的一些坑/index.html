@@ -20,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="tags"/>
+        <meta property="og:title" content="php共享内存shmop和shm使用的一些坑"/>
     
 
     <!--Open Graph Description-->
@@ -44,7 +44,7 @@
 
     <!-- Title -->
     
-    <title>tags - 恠迗涯尋覓伱</title>
+    <title>php共享内存shmop和shm使用的一些坑 - 恠迗涯尋覓伱</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -182,12 +182,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>tags</h1>
+                    <h1>php共享内存shmop和shm使用的一些坑</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
                         
-                        2017-02-23
+                        2018-11-20
                     </span>
                 </div>
             </div>
@@ -202,13 +202,35 @@
 
             <!-- Tags and categories -->
            
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/共享内存/">#共享内存</a> <a href="/tags/shmop/">#shmop</a> <a href="/tags/shm/">#shm</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
 
             <!-- Gallery -->
             
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                
+                <p>最近在接入service mesh时，由于涉及底层接口高访问量的场景，考虑到性能问题需将mesh的地址缓存起来，首先想到了使用共享内存。<br>我们知道关于共享内存的操作，php有两套内置扩展函数shmop和sysvshm，一开始我采用了shmop扩展，业务在线上跑了半个多月均无任何异常出现，直到20天之后开始出现一些零星的异常，捕捉到的错误信息如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PHP Warning &apos;yii\base\ErrorException&apos; with message &apos;shmop_delete() expects parameter 1 to be long, string given&apos; in test.php</div></pre></td></tr></table></figure></p>
+<p>其中写共享内存的php代码实现如下：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">write</span><span class="params">($data)</span></span>&#123;</div><div class="line">    $data = pack(<span class="string">'a*'</span>, $data);</div><div class="line">    shmop_delete(<span class="keyword">$this</span>-&gt;shmId);</div><div class="line">    shmop_close(<span class="keyword">$this</span>-&gt;shmId);</div><div class="line">    <span class="keyword">$this</span>-&gt;shmId = shmop_open(<span class="keyword">$this</span>-&gt;key, <span class="string">'c'</span>, <span class="keyword">$this</span>-&gt;perms, strlen($data));</div><div class="line">    <span class="keyword">return</span> shmop_write(<span class="keyword">$this</span>-&gt;shmId, $data, <span class="number">0</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>由于shmop扩展函数在插入、更新、读取等操作均需要自行规划和管理共享内存的存储结构，比如使用shmop开辟一块共享内存并写入内容：”abcdefghijklmn”，第二次写入：”123456”，则此时共享内存的内容为”123456ghijklmn”，第二次的写入并不会清空共享内存已有的内容，所以当初图方便在每次写入时先删掉原来的共享内存块，重新创建一块内存地址并写入新内容，这就为高并发场景下出现以上错误埋下了伏笔。<br>原因找到了，于是我想到了改成使用sysvshm那套扩展，具体实现如下：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">write</span><span class="params">($varKey, $data)</span></span>&#123;</div><div class="line">    $data = pack(<span class="string">'a*'</span>, $data);</div><div class="line">    <span class="keyword">return</span> shm_put_var(<span class="keyword">$this</span>-&gt;shmId, $varKey, $data);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>第二天凌晨，收到了一大波告警，捕捉到的异常信息如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">shm_put_var(): not enough shared memory left</div></pre></td></tr></table></figure></p>
+<p>并且php-fpm一直core，于是立马关掉使用共享内存的开关，经过两天的排查，终于在测试环境复现了问题。<br>复现方式，通过一个crontab开多个进程同时操作共享内存，一分钟之后，开始出现了同样的错误。于是停止脚本，发现无法通过shm_get_var()来读取共享内存的内容，于是我使用shmop_read读取到的内容如下图所示：<br><img src="/img/shm-error.png" alt="shm_put_var错误"><br>写的内容只有：{“zmq”:{“host”:”19.168.1.100”,”port”:”8899”,”createTime”:1542110838}}，但是共享内存里面却是重复的内容，经过分析sysV的接口对于shareKey没有做去重处理，每次都写入了新的key，导致了共享内存的写入指针尽管是相同的shareKey但不断后移，最终导致共享内存被写爆。<br>于是在操作共享内存的地方都加上信号锁，经过验证再也不会出现以上问题。代码如下：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">write</span><span class="params">($varKey, $data)</span></span>&#123;</div><div class="line">    $data = pack(<span class="string">'a*'</span>, $data);</div><div class="line">    $signal = sem_get(<span class="keyword">$this</span>-&gt;key);</div><div class="line">    sem_acquire($signal);</div><div class="line">    $result = shm_put_var(<span class="keyword">$this</span>-&gt;shmId, $varKey, $data);</div><div class="line">    sem_release($signal);</div><div class="line">    <span class="keyword">return</span> $result;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>补充：<br>后来想起了补丁shmop版，其实可以自行进行存储空间管理，再加上信号锁，应该是可以完美解决问题的（以下代码未经过测试）：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">write</span><span class="params">($data)</span></span>&#123;</div><div class="line">    $dataLength = strlen($data);</div><div class="line">    $msg = pack(<span class="string">'n'</span>, $dataLength);</div><div class="line">    $msg .= pack(<span class="string">'a'</span>, $data);</div><div class="line">    $signal = sem_get(<span class="keyword">$this</span>-&gt;key);</div><div class="line">    sem_acquire($signal);</div><div class="line">    $result = shmop_write(<span class="keyword">$this</span>-&gt;shmId, $msg, <span class="number">0</span>);</div><div class="line">    sem_release($signal);</div><div class="line">    <span class="keyword">return</span> $result;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">read</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">try</span>&#123;</div><div class="line">        $size = shmop_size(<span class="keyword">$this</span>-&gt;shmId);</div><div class="line">        $signal = sem_get(<span class="keyword">$this</span>-&gt;key);</div><div class="line">        sem_acquire($signal);</div><div class="line">        $shmContent = shmop_read(<span class="keyword">$this</span>-&gt;shmId, <span class="number">0</span>, $size);</div><div class="line">        sem_release($signal);</div><div class="line">        $dataInfo = unpack(<span class="string">'n1dataLength'</span>, $shmContent);</div><div class="line">        $data = unpack(<span class="string">"n1dataLength/a&#123;$dataInfo['dataLength']&#125;data"</span>, $shmContent);</div><div class="line">        <span class="keyword">return</span> $data[<span class="string">'data'</span>];</div><div class="line">    &#125;<span class="keyword">catch</span>(\<span class="keyword">Exception</span> $e)&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>最后还是推荐使用sysvshm那套API，比shmop要好用一些。</p>
+<p>感谢：<a href="https://www.jianshu.com/p/a182bc8b3f23" target="_blank" rel="external">https://www.jianshu.com/p/a182bc8b3f23</a></p>
+
 
                 
             </div>
@@ -241,6 +263,22 @@
 
 
 
+
+    <div id="container"></div>
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: location.href, // 可选。默认为 location.href
+            owner: "victorquan",//查看https://api.github.com/users/用户名h
+            repo: "my-blog-comment",
+            oauth: {
+                client_id: "24d1a166f2ff57962706",
+                client_secret: "bdbd5e4b66f0bed78cb7f1993f83537e2e29fd30",
+            }
+        });
+        gitment.render('container');
+    </script>
 
 
 
