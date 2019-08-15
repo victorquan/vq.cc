@@ -47,7 +47,7 @@ highlight:
 # Category & Tag
 default_category: uncategorized
 category_map:
-#tag_map: [crontab, git, Linux, Mac, node, nvm, sass, 代理, 前端, 版本控制, 终端]
+#tag_map: [crontab, git, Linux, Mac, node, nvm, sass, 代理, 前端, 版本控制, 终端, php扩展]
 tags:
   - crontab
   - git
@@ -60,6 +60,7 @@ tags:
   - 前端
   - 版本控制
   - 终端
+  - php扩展
 
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
