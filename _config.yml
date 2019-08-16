@@ -85,6 +85,8 @@ theme: hexo-theme-clean-blog
 deploy:
   - type: git
     repo:
+#      name: victorquan
+#      email: dongqiaoershao@foxmail.com
       github: https://github.com/victorquan/victorquan.github.io.git
       coding: https://git.coding.net/victorquan/myBlog.git
     branch: master
