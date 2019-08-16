@@ -34,7 +34,7 @@ php_beach_php56.h：当将扩展作为静态模块构建并放入PHP二进制包
 php扩展的生命周期参考下图：<br>
 ![php-so生命周期](/img/php-so/php_extensions_lifecycle.png)
 
-源码详见：[beach_ph56源码](https://github.com/victorquan/beach_php56)
+源码详见：[beach_php56源码](https://github.com/victorquan/beach_php56)
 
 
 #### 修改beach_php56.c文件
