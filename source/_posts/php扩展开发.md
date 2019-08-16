@@ -113,5 +113,6 @@ make install
 killall php-fpm
 ```
 
+### 五、自定义类和方法参考github代码中的Animal类
 
 
